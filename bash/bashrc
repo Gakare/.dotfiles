@@ -1,0 +1,41 @@
+#
+# $XDG_CONFIG_HOME/bash/bashrc
+#
+
+#Sourcing for icons in terminal
+. $XDG_DATA_HOME/icons/icons-in-terminal/build/icons_bash.sh
+
+export BASHDIR="$XDG_CONFIG_HOME/bash"
+#Sourcing for prompt
+. $BASHDIR/git_prompt
+
+unset -v BASHDIR
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+[ -z "$PS1" ] && return
+
+#Setting vi mode for bash 
+#set -o vi
+
+#Bash prompting
+PS1='\[\e[38;5;81m\]\]\[$(echo -e "\xef\x81\xa1\x20\x0a")\] \\
+\[\e[38;5;182m\]\]\W\[\e[38;5;153m\]\]\e(B\e[m\]\e\\
+\[\e[38;5;209m\]\]\[$(git_prompt)\]\e\\
+\[\e(B\e[m\]\e\\ '
+
+#Bash completion
+[[ $PS1 && -f /usr/share/bash-completion/bash-completion ]] && \
+    . /usr/share/bash-completion/bash-completion
+
+#Aliases
+alias vim='nvim'
+alias vi=vim
+
+alias ls='exa -lah --color=always --group-directories-first --icons --classify'
+
+alias grep='grep --color=auto'
+
+alias tmux='tmux -2'
+
+alias bashsrc=". ~/.config/bash/bashrc"

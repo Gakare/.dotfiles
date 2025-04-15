@@ -1,0 +1,18 @@
+#!/bin/bash
+#Taken from Nick Janetakis @ youtube
+git_prompt() {
+	local branch="$(git symbolic-ref HEAD 2> /dev/null | cut -d'/' -f3)"
+	local branch_truncated="${branch:0:30}"
+    if [[ -n "${branch}" ]]; then
+        if (( ${#branch} > ${#branch_truncated} )); then
+            branch="${branch_truncated}..."
+        fi
+    fi
+	if [[ -n "${branch}" ]]; then
+        echo -e " git:(${branch})"
+    else
+        #Added functionality to show tags when I am in a detached head state
+        local detached="$(git branch 2> /dev/null | sed -n '/\* /s///p')"
+        [ -n "${detached}" ] && echo -e " git:${detached}"
+    fi
+}

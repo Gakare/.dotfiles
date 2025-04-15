@@ -1,0 +1,33 @@
+#!/bin/env bash
+
+# xdg directories
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CACHE_HOME="$HOME/.cache"
+
+export PATH="$PATH:"$HOME/.local/bin":/usr/local/texlive/2023/bin/x86_64-linux:$HOME/.cache/cargo/bin:$XDG_CONFIG_HOME/python/pyenv/bin:$XDG_DATA_HOME/icons/icons-in-terminal/bin:$XDG_CONFIG_HOME/rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin"
+
+export EDITOR="nvim"
+export TERMINAL="st"
+export BROWSER="brave"
+
+# ~/ Clean-up:
+export XAUTHORITY="$XDG_CACHE_HOME/Xauthority"
+export LESSHISTFILE="-"
+
+export BASHRC="$XDG_CONFIG_HOME/bash/bashrc"
+export GIT_CONFIG_GLOBAL="$XDG_CONFIG_HOME/git/gitconfig"
+export PRETTIERRC="$XDG_CONFIG_HOME/prettier/prettierrc.json"
+
+# Cleaning up vim
+export _vimrc="$XDG_CONFIG_HOME/vim/vimrc"
+
+export CARGO_HOME="$XDG_CACHE_HOME/cargo"
+export RUSTUP_HOME="$XDG_CONFIG_HOME/rustup"
+
+export NPM_CONFIG_USERCGONFIG="$XDG_CONFIG_HOME/npm/config"
+
+export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonstartup.py"
+
+export GOPATH="$XDG_DATA_HOME/go"
